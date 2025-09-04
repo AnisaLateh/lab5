@@ -19,3 +19,4 @@ if (mysqli_num_rows($result) > 0) {
 }   
 echo "<br><a href=add_student.php>Add Student</a>";
 echo "</center>";
+?>
