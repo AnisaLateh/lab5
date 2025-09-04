@@ -9,9 +9,10 @@ while($row = mysqli_fetch_assoc($result)){
 echo
 "<tr><td>".$row["course_code"]."</td><td>".$row["course_name"]."</td><td>".$row["credit"]."</t
 d>";
-echo "<td><a href=edit_course.php?course_code=".$row["course_code"].">Edit</a></td></tr>";
+echo "<td><a href=edit_course.php?course_code=".$row["course_code"].">Edit</a> <a href=delete_courese_code=".$row["course_code"]onclick=\"return confirm('Are you sure you want to delete this item?');\">Delete</a></td></tr>;
 }
 echo "</table>";
 echo "<br><a href=add_course.php>Add Course</a>";
 echo "</center>";
 ?>
+
