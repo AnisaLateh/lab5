@@ -1,8 +1,9 @@
 <?php
 require("connect_db.php");
 $student_code = $_GET["student_code"];
+$course_code = $_GET["course_code"];
 
-$query = "SELECT E.student_code, S.student_name, E.point, E.course_code FROM exam_result as E LEFT JOIN student as S ON S.student_code = E.student_code WHERE E.student_code = '$student_code';";
+$query = "SELECT E.student_code, S.student_name, E.point, E.course_code FROM exam_result as E INNER JOIN student as S ON S.student_code = E.student_code WHERE E.student_code = '$student_code' AND E.course_code='$course_code';";
 
 $list_exam_result = mysqli_query($conn, $query);
 $exam_result = mysqli_fetch_assoc($list_exam_result);
