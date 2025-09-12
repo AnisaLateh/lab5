@@ -12,10 +12,11 @@ $result = mysqli_query($conn, $sql);
 echo "<center>";
 echo "<h1>Exam Result " . $course["course_name"] . "</h1>";
 echo "<table border=1 width=40%>";
-echo "<tr><th>Student Code</th><th>Student Name</th><th>Point</th></tr>";
+echo "<tr><th>Student Code</th><th>Student Name</th><th>Point</th><th>Operation</th></tr>";
 while ($row = mysqli_fetch_assoc($result)) {
-    echo "<tr><td>" . $row["student_code"] . "</td><td>" . $row["student_name"]
-        . "</td><td>" . $row["point"] . "</td></tr>";
+echo "<tr><td>" . $row["student_code"] . "</td><td>" . $row["student_name"]. "</td><td>" . $row["point"] . "</td><td><a href='edit_exam_result.php?course_code=".$row["course_code"]."&student_code=".$row["student_code"]."'>Edit</a> ";
+echo "<a href='delete_exam_result.php?student_code=".$row["student_code"]."&course_code=".$course_code."' onclick=\"return confirm('คุณต้องการลบคะแนนนักศึกษาคนนี้หรือไม่?');\">delete</a></td></tr>";
 }
 echo "</table>";
+echo "<br><a href='add_exam_result.php?course_code=".$course_code."'>Add Exam Result</a>";
 echo "</center>";
